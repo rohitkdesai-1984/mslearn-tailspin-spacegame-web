@@ -99,7 +99,7 @@ steps:
     )
  
 - task: SonarCloudPublish@1
-  displayName: 'Issue-7685:Publish SonarCloud quality gate results'
+  displayName: 'Publish SonarCloud quality gate results'
   condition: |
     and
     (
@@ -109,14 +109,13 @@ steps:
     )
 
 - task: PublishCodeCoverageResults@1
-
-  displayName: 'Prod-HotFix-1213-Publish code coverage report'
+  displayName: 'IssueV1Fix-1213:Publish code coverage report'
   inputs:
     codeCoverageTool: 'cobertura'
     summaryFileLocation: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
 
 - task: DotNetCoreCLI@2
-  displayName: 'Issue-7685:Publish the project - $(buildConfiguration)'
+  displayName: 'Issue1213V2Fix:Publish the project - $(buildConfiguration)'
   inputs:
     command: 'publish'
     projects: '**/*.csproj'
